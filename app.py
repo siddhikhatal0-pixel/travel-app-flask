@@ -165,7 +165,7 @@ def tarkarli():
     return render_template('Beach/tarkarli.html')
 
 
-# ---------------- Hsitorical places ----------------
+# ---------------- Historical places ----------------
 @app.route('/ajanta_ellora')
 def Historical_places():
     return render_template('ajanta_ellora.html')
