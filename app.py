@@ -191,6 +191,42 @@ def kailasa():
     return render_template('historical_places/kailasa.html')
 
 
+# ---------------- Wildlife ----------------
+@app.route('/Wildlife')
+def Wildlife():
+    return render_template('Wildlife.html')
+
+@app.route('/tadoba')
+def tadoba():
+    return render_template('wildlife/tadoba.html')
+
+@app.route('/bhigwan')
+def bhigwan():
+    return render_template('wildlife/bhigwan.html')
+
+@app.route('/bhima')
+def bhima():
+    return render_template('wildlife/bhima.html')
+
+@app.route('/koyna')
+def koyna():
+    return render_template('wildlife/koyna.html')
+
+@app.route('/melghat')
+def melghat():
+    return render_template('wildlife/melghat.html')
+
+@app.route('/radha')
+def radha():
+    return render_template('wildlife/radha.html')
+
+@app.route('/sanjay')
+def sanjay():
+    return render_template('wildlife/sanjay.html')
+
+
+
+
 # ---------------- PROFILE ----------------
 @app.route('/profile')
 def profile():
@@ -220,13 +256,14 @@ def search():
 def preplanned():
     return render_template('preplanned.html')
 
-@app.route('/plan')
-def plan():
-    return render_template('plan_now.html')
+@app.route('/explore')
+def explore():
+    return render_template('explore.html')
 
 @app.route('/trip')
 def trip():
     return render_template('trip.html')
+
 
 # ---------------- RUN ----------------
 if __name__ == '__main__':
