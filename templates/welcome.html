@@ -68,7 +68,9 @@ body{
   justify-content:space-around;
   padding:10px 0;
   box-shadow:0 -6px 20px rgba(0,0,0,.12);
+  z-index:9999;   /* ⭐ ADD THIS */
 }
+
 
 .bottom-nav a{
   text-decoration:none;
@@ -97,8 +99,9 @@ body{
 .content{
   flex:1;
   overflow-y:auto;
-  padding-bottom:160px; /* ✅ THIS FIX */
+  padding-bottom:120px;  /* bottom nav height पेक्षा जास्त */
 }
+
 
 
 /* HERO */
@@ -116,7 +119,9 @@ body{
   position:absolute;
   inset:0;
   background:rgba(0,0,0,.35);
+  pointer-events:none;   /* ⭐ ADD THIS */
 }
+
 
 .hero-content{
   position:absolute;
@@ -271,11 +276,18 @@ body{
     <div class="header-top">
       <h1>PlanNGo</h1>
       <div class="auth-buttons">
-        <a href="/login" class="login-btn">Login</a>
-        <a href="/signup" class="signup-btn">Sign Up</a>
-      </div>
+        {% if session.get('user') %}
+          <span style="font-size:13px;">Hi, {{ session.get('user') }}</span>
+          <a href="/logout" class="login-btn">Logout</a>
+        {% else %}
+          <a href="/login" class="login-btn">Login</a>
+          <a href="/signup" class="signup-btn">Sign Up</a>
+         {% endif %}
+       </div>
+
     </div>
   </div>
+
 
   <!-- CONTENT -->
   <div class="content">
