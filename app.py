@@ -224,7 +224,18 @@ def radha():
 def sanjay():
     return render_template('wildlife/sanjay.html')
 
+# ---------------- Seasonal ----------------
+@app.route('/Summer')
+def Summer():
+    return render_template('Summer.html')
 
+@app.route('/Monsoon')
+def Monsoon():
+    return render_template('Monsoon.html')
+
+@app.route('/Winter')
+def Winter():
+    return render_template('Winter.html')
 
 
 # ---------------- PROFILE ----------------
@@ -264,6 +275,23 @@ def explore():
 def trip():
     return render_template('trip.html')
 
+@app.route("/itinerary")
+def itinerary():
+    lat = 18.5204   # Pune (use dynamic later)
+    lon = 73.8567
+
+    url = (
+        f"https://api.opentripmap.com/0.1/en/places/radius"
+        f"?radius=5000&lat={lat}&lon={lon}"
+        f"&kinds=tourist_attraction&limit=10&apikey={API_KEY}"
+    )
+
+    response = requests.get(url)
+    data = response.json()
+
+    places = data.get("features", [])
+
+    return render_template("itinerary.html", places=places)
 
 # ---------------- RUN ----------------
 if __name__ == '__main__':
