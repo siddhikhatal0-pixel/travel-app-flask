@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PlanNGo – Wildlife Sanctuaries</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#f6f7f9;
+  color:#222;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,#1c4e80,#4da8da);
+  padding:18px;
+  border-bottom-left-radius:20px;
+  border-bottom-right-radius:20px;
+  color:#fff;
+}
+
+.header-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.back-btn{
+  text-decoration:none;
+  color:#fff;
+  font-size:18px;
+}
+
+/* SECTION */
+.section{
+  padding:16px;
+}
+
+.section h3{
+  margin-bottom:14px;
+  font-size:16px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  text-decoration:none;
+  color:#222;
+}
+
+.card img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:10px;
+}
+
+.card-content h4{
+  margin:0 0 4px;
+  font-size:14px;
+}
+
+.card-content p{
+  margin:0;
+  font-size:12px;
+  color:#666;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  box-shadow:0 -6px 20px rgba(0,0,0,.12);
+}
+
+.bottom-nav a{
+  text-decoration:none;
+  color:#777;
+  font-size:12px;
+  text-align:center;
+}
+
+.bottom-nav i{
+  display:block;
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.bottom-nav a.active{
+  color:#1c4e80;
+}
+
+.page{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.content{
+  flex:1;
+  overflow-y:auto;
+  padding-bottom:90px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <a href="/" class="back-btn"><i class="fa fa-arrow-left"></i></a>
+      <div>
+        <h2>Wildlife</h2>
+        <p style="font-size:13px;opacity:.9;">Sanctuaries & Reserves</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLLABLE CONTENT -->
+  <div class="content">
+    <div class="section">
+      <h3>Popular Wildlife Sanctuaries</h3>
+
+      <div class="grid">
+
+        <a href="{{ url_for('tadoba') }}" class="card">
+          <img src="{{ url_for('static', filename='images/tadoba.jpg') }}">
+          <div class="card-content">
+            <h4>Tadoba Andhari</h4>
+            <p>Tiger reserve, Chandrapur</p>
+          </div>
+        </a>
+
+        <a href="{{ url_for('bhima') }}" class="card">
+          <img src="{{ url_for('static', filename='images/BS.jpg') }}">
+          <div class="card-content">
+            <h4>Bhimashankar</h4>
+            <p>Indian Giant Squirrel</p>
+          </div>
+        </a>
+
+        <a href="{{ url_for('koyna') }}" class="card">
+          <img src="{{ url_for('static', filename='images/koyna.jpg') }}">
+          <div class="card-content">
+            <h4>Koyna Sanctuary</h4>
+            <p>Western Ghats biodiversity</p>
+          </div>
+        </a>
+
+        <a href="{{ url_for('melghat') }}" class="card">
+          <img src="{{ url_for('static', filename='images/melghat.jpg') }}">
+          <div class="card-content">
+            <h4>Melghat</h4>
+            <p>Tiger reserve, Amravati</p>
+          </div>
+        </a>
+
+        <a href="{{ url_for('radha') }}" class="card">
+          <img src="{{ url_for('static', filename='images/radhanagari.jpg') }}">
+          <div class="card-content">
+            <h4>Radhanagari</h4>
+            <p>Bison sanctuary, Kolhapur</p>
+          </div>
+        </a>
+
+        <a href="{{ url_for('sanjay') }}" class="card">
+          <img src="{{ url_for('static', filename='images/sanjay gandhi.jpg') }}">
+          <div class="card-content">
+            <h4>Sanjay Gandhi NP</h4>
+            <p>Urban national park</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="/" class="active"><i class="fa fa-home"></i>Home</a>
+  <a href="/itinerary"><i class="fa fa-map"></i>Trips</a>
+  <a href="/explore"><i class="fa fa-compass"></i>Explore</a>
+  <a href="/profile"><i class="fa fa-user"></i>Profile</a>
+</div>
+
+</body>
+</html>
